@@ -5,8 +5,8 @@
   - 콤피 [#98](https://github.com/woowacourse/javascript-lotto/pull/98)
   - 돔하디 [#108](https://github.com/woowacourse/javascript-lotto/pull/108)
   - 민초 [#104](https://github.com/woowacourse/javascript-lotto/pull/104)
-  - 블링
-  - 태태
+  - 블링 [#88](https://github.com/woowacourse/javascript-lotto/pull/88)
+  - 태태 [#91](https://github.com/woowacourse/javascript-lotto/pull/91)
   - 하리 [#115](https://github.com/woowacourse/javascript-lotto/pull/115)
   - 록바 [#103](https://github.com/woowacourse/javascript-lotto/pull/103)
   - 코카콜라 [#111](https://github.com/woowacourse/javascript-lotto/pull/111)
@@ -288,6 +288,74 @@ resetLottoList() {
 
 - MDN에 따르면, Element.replaceChildren()메서드는 기존 자식을 지정된 새 자식 집합으로 바꿉니다. 이것들은 DOMString 또는 Node객체가 될 수 있다.
 
+<br>
+
+### [#88, #91] 블링, 태태
+
+파일 구조도는 MVC 패턴을 따르고 있다.
+
+Model - lotto, lottoManager
+View - lottoView
+Controller - lottoController
+
+#### Controller
+
+- Controller는 lottoController로 구성되어 있다.
+  - constructor에는 Model과 View 인스턴스를 생성한 후, 멤버변수로 할당하고 있다.
+  - View에서 dom을 관리하고 있기 때문에, 이벤트 동작과정에서 Controller에 필요한 부분을 callback으로 View에게 전달하고 있다.
+  - 외부에 드러낼 필요없는 부분은 #을 이용해 은닉화를 진행하였다.
+
+<br>
+
+#### View
+
+- View는 lottoView로 구성되어 있다.
+  - constructor에는 화면에 연관되어 있는 element를 멤버변수로 할당하고 있다.
+  - 로또 element는 템플릿을 사용하지 않고, tag와 className을 이용해 element를 생성하고 text를 넣는 식으로 구성하였다.
+  - 외부로 드러낼 필요없는 부분은 #을 이용해 은닉화를 진행하였다.
+
+<br>
+
+#### Model
+
+- Model은 lotto, lottoManager로 구성되어 있다.
+  - Lotto클래스는 lottoNumberSet(로또 번호들)을 멤버변수로 가지고 있으며, Set 자료형을 사용하고 있다. Set 객체를 생성할 때, 로또 번호를 랜덤하게 가져오는 함수를 호출하여 리턴 값을 매개변수로 전달하고 있다.
+    ```javascript
+    class Lotto {
+      constructor() {
+        this.lottoNumberSet = new Set(
+          generateRandomNumberInRange({
+            min: LOTTO_NUMBER_RANGE.MIN,
+            max: LOTTO_NUMBER_RANGE.MAX,
+            count: LOTTO_NUMBER_COUNT,
+          })
+        );
+      }
+    }
+    ```
+  - LottoManager클래스는 lottoPrice(로또 가격), purchaseAmount(구매한 로또 갯수), lottos(로또 번호들로 이루어진 배열)을 멤버변수로 초기화하고 있다.
+
+<br>
+
+#### 인상깊은 부분
+
+```javascript
+#toggleLottoNumbersShow = ({ target: { checked: isVisible } }) => {
+  const { classList: lottoGridClassList } = this.lottoGrid;
+  if (isVisible) {
+    lottoGridClassList.add(CLASSNAMES.ONE_COLUMN_GRID_CLASSNAME);
+    lottoGridClassList.remove(CLASSNAMES.HIDE_NUMBERS_CLASSNAME);
+    return;
+  }
+  lottoGridClassList.remove(CLASSNAMES.ONE_COLUMN_GRID_CLASSNAME);
+  lottoGridClassList.add(CLASSNAMES.HIDE_NUMBERS_CLASSNAME);
+};
+```
+
+- 구조 분해(destructuring)이 인상깊다.
+
+<br>
+
 ---
 
 ## 피드백 정리
@@ -353,6 +421,11 @@ resetLottoList() {
 - [#115] #을 이용한 은닉화의 범위
   - 객체지향 관점에서 외부로 노출될 메소드들만 public으로 지정해놓는게 좋고,
     노출되지 않을 메소드는 private으로 만드는게 좋습니다!
+
+<br>
+
+- [#91] static 메서드의 기준은 무엇일까?
+  - class는 기본적으로 인스턴스를 생성하는 틀입니다. 인스턴스 내부 '메소드'의 정의는 인스턴스 '자신'의 내부 동작을 수행하는 함수입니다. '자신'에 관여하는 내용이 없다면 이는 '메서드'가 아닌 '함수'로 불러야 하겠죠. 그런 맥락에서 보면, **this를 사용하지 않는 메서드는 인스턴스에서 접근해야할 필요가 없습니다. 인스턴스에 제공될 필요가 없으니 굳이 상속시키지 않게끔 static으로 분리하라는 것이죠.** 그런데 전부 static 메서드만 있는 클래스의 경우, 이를 바탕으로 인스턴스로 만들어봐야 그 인스턴스는 빈껍데기만 있는 객체에 불과합니다. 실제로 인스턴스로 만드는 시도조차 안하실거구요. 그렇다면 해당 클래스는 클래스로서가 아니라 일반 객체로서의 의미밖에 없는 것이니, static으로만 구성된 클래스는 차라리 처음부터 객체로 만드는 편이 좋다고 생각합니다.
 
 <br>
 
@@ -431,6 +504,26 @@ resetLottoList() {
 
 - [#104] 네이밍에 전치사?
   - 클린코드 원칙에는 전치사 사용을 자제하는것을 추천한다.
+
+<br>
+
+- [#91] 상수는 굳이 멤버로 할당할 필요가 없다.
+  ```javascript
+  this.lottoPrice = LOTTO_PRICE;
+  ```
+
+<br>
+
+-[#88] model에 직접 접근은 지양해라.
+
+```javascript
+//직접 접근
+this.view.renderLottos(this.lottoManager.lottos);
+
+//간접 접근
+const lottos = this.lottoManager.getLottos;
+this.view.renderLottos(lottos);
+```
 
 <br>
 
