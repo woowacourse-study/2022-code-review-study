@@ -10,7 +10,7 @@
   - 하리 [#115](https://github.com/woowacourse/javascript-lotto/pull/115)
   - 록바 [#103](https://github.com/woowacourse/javascript-lotto/pull/103)
   - 코카콜라 [#111](https://github.com/woowacourse/javascript-lotto/pull/111)
-  - 안
+  - 안 [#114](https://github.com/woowacourse/javascript-lotto/pull/114)
 
 <br>
 
@@ -241,14 +241,52 @@ Controller - LottoController
     ```
     - showResult함수에서, view에 관련된 함수를 호출하는 형태로 구성되어있다.
 
-<br>
-
 #### Model
 
 - Model은 Lotto로 구성되어 있다.
   - constructor에는 lottoNumbers(로또 번호들) 멤버변수와 로또 번호를 생성하는 함수를 호출하고 있다.
 
 <br>
+
+### [#114] 안
+
+파일 구조도는 MVC 패턴을 따르고 있다.
+
+Model - Lotto
+View - LottoGameView
+Controller - LottoGame
+
+#### Controller
+
+- Controller는 LottoGame로 구성되어 있다.
+  - constructor에는 Model과 View 인스턴스를 생성한 후, 멤버변수로 할당하고 있다.
+  - constructor에서 이벤트리스너를 등록하고 있다.
+
+<br>
+
+#### View
+
+- View는 LottoGameView로 구성되어 있다.
+  - View에서 토글 이벤트리스너를 등록하고 있다.
+
+<br>
+
+#### Model
+
+- Model은 Lotto로 구성되어 있다.
+  - constructor에는 lottos(로또번호를 포함하고 있는 멤버들로 구성된)멤버변수를 가지고 있다.
+
+<br>
+
+#### 인상깊은 부분
+
+```javascript
+resetLottoList() {
+  this.lottoNumberList.replaceChildren("");
+}
+```
+
+- MDN에 따르면, Element.replaceChildren()메서드는 기존 자식을 지정된 새 자식 집합으로 바꿉니다. 이것들은 DOMString 또는 Node객체가 될 수 있다.
 
 ---
 
@@ -266,6 +304,11 @@ Controller - LottoController
     View에서 등록한 핸들러 내부에서 적정한 타입/값을 담은 dispatch를 호출합니다.
     dispatch함수는 인자를 받아 controller들에게 알립니다(publish).
     해당 타입을 subscribe하고 있는 controller가 이를 처리합니다.
+
+<br>
+
+- [#114] 이벤트등록은 View에서 해야할까? Controller에서 해야할까?
+  - 셀렉터라는게 view에서 element를 선택하자는 거니까 view에 의존적인게 당연하죠. 당연히 view에 의존적일 수밖에 없는 내용이라면 view에 몰아넣는게 합리적이지 않나요? 모든 크루들이 view와 controller의 의존관계를 끊어내려 하기보다 오히려 controller가 적극적으로 view에 개입하고 있는데, 그 이유는 제가 추측하기로는 크루분들 사이에 eventListener를 controller에서 등록해야 한다는 강박 같은게 자리잡은게 아닌가 싶거든요.. 왜 그런 컨센서스가 생긴건지 모르겠는데, **이벤트등록은 뷰에서 하는게 맞습니다.** 이벤트 발생시 컨트롤러에서의 동작은 별도의 함수를 마련, 호출함으로써 해결하면 되구요.
 
 <br>
 
@@ -419,3 +462,16 @@ Controller - LottoController
 
 - [#115] 공통적으로 쓰이는 색상은 global css variable로 만들자.
   - 추후 개발을 진행하거나 했을때 일관적으로 색상 팔레트가 관리되고 있지 않다면, 찾아다니는게 대규모 프로젝트에선 생각외로 힘들다.
+
+<br>
+
+### 새로운 접근
+
+- [#114] 꼭, constructor에서 element에 접근해서 멤버변수로 해야할까?
+  - HTML상에 위 element의 생명주기가 JS의 생명주기보다 먼저 시작해서 끝까지 살아있다는 전제하에서는, 위 값을 상수 또는 변수로 만들어두면 안될까요?
+    ```javascript
+    const ELEMENTS = {
+      ...
+      SWITCH_INPUT: $(".switch-input")
+    }
+    ```
