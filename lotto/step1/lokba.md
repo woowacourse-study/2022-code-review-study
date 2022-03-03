@@ -3,8 +3,8 @@
 - 분석 담당 코드
   - 후이 [#93](https://github.com/woowacourse/javascript-lotto/pull/93)
   - 콤피 [#98](https://github.com/woowacourse/javascript-lotto/pull/98)
-  - 돔하디
-  - 민초
+  - 돔하디 [#108](https://github.com/woowacourse/javascript-lotto/pull/108)
+  - 민초 [#104](https://github.com/woowacourse/javascript-lotto/pull/104)
   - 블링
   - 태태
   - 하리 [#115](https://github.com/woowacourse/javascript-lotto/pull/115)
@@ -202,6 +202,7 @@ Controller - LottoMachineController
     return numbers;
   };
 
+  //immutable 적용하기ㅠㅠ
   function shuffleArray(inputArray) {
     inputArray.sort(() => Math.random() - 0.5);
   }
@@ -210,6 +211,44 @@ Controller - LottoMachineController
   - 효율/성능을 따져야할 만큼 심각한 성능저하가 따르는 경우가 아닌 한은 읽기좋은 코드 / 간단한 코드를 작성하는 다양한 방법을 생각해 보시면 좋겠다
 
     <br>
+
+### [#104, #108] 민초, 돔하디
+
+파일 구조도는 MVC 패턴을 따르고 있다.
+
+Model - Lotto
+View - lottoView
+Controller - LottoController
+
+#### Controller
+
+- Controller는 LottoController로 구성되어 있다.
+  - constructor에서 lottos(로또번호를 포함하고 있는 멤버들로 구성된)멤버변수를 가지며, 이벤트리스너를 등록하고 있다.
+
+<br>
+
+#### View
+
+- View는 lottoView로 구성되어 있다.
+  - 클래스가 아닌, 함수표현식으로 구성되어 있다.
+    ```javascript
+    export const showResult = (lottos) => {
+      deactivateForm();
+      showResultElements();
+      showNumberOfLottos(lottos.length);
+      showLottoImage(lottos);
+    };
+    ```
+    - showResult함수에서, view에 관련된 함수를 호출하는 형태로 구성되어있다.
+
+<br>
+
+#### Model
+
+- Model은 Lotto로 구성되어 있다.
+  - constructor에는 lottoNumbers(로또 번호들) 멤버변수와 로또 번호를 생성하는 함수를 호출하고 있다.
+
+<br>
 
 ---
 
@@ -328,8 +367,27 @@ Controller - LottoMachineController
 
   - 이미 '상수'임을 모두가 아는 상태에서, 객체에 접근하는 경우가 발생한다면 건든 사람이 책임을 져야하는 일이다. 오버스펙이라 생각한다.
 
+<br>
+
 - [#111] css 파일명 원칙
   - 보통 css 파일명으로 카멜케이스를 사용하지 않는다.
+
+<br>
+
+- [#104] && 연산자 관련 코멘트
+  ```javascript
+  const isValidMoneyInput = (money) =>
+    isThousandMultiple(money) &&
+    isOverThouand(money) &&
+    isUnderMillion(money) &&
+    isValidMoneyRange(money);
+  ```
+  - && 연산자를 사용할 때, 값에 대한 평가로만 사용하고 함수 호출을 지양하는 편이다.
+
+<br>
+
+- [#104] 네이밍에 전치사?
+  - 클린코드 원칙에는 전치사 사용을 자제하는것을 추천한다.
 
 <br>
 
