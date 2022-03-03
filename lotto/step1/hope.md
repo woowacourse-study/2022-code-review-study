@@ -1,4 +1,4 @@
-Level번호 미션명 Step번호(담당 PR 번호들) - 호프
+# Level1 로또 Step1(담당 PR 번호들) - 호프
 - 분석 담당 코드
     - [#83-시지프 ](https://github.com/woowacourse/javascript-lotto/pull/83)
     - [#89-호프](https://github.com/woowacourse/javascript-lotto/pull/89)
