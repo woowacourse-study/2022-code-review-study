@@ -20,9 +20,9 @@
 
 파일 구조도는 MVC 패턴을 따르고 있다.
 
-Model - Lotto, LottosModel
-View - MoneyInputView, LottoListView
-Controller - LottoController
+- Model - Lotto, LottosModel
+- View - MoneyInputView, LottoListView
+- Controller - LottoController
 
 #### Controller
 
@@ -115,9 +115,9 @@ $primary-color: #00bcd4;
 
 파일 구조도는 MVC 패턴을 따르고 있다.
 
-Model - LottoNumbers, PurchasedLottos
-View - View, PurchasedMoneyView, PurchasedLottoView, WinningNumberView
-Controller - LottoMachineController
+- Model - LottoNumbers, PurchasedLottos
+- View - View, PurchasedMoneyView, PurchasedLottoView, WinningNumberView
+- Controller - LottoMachineController
 
 #### Controller
 
@@ -217,9 +217,9 @@ Controller - LottoMachineController
 
 파일 구조도는 MVC 패턴을 따르고 있다.
 
-Model - Lotto
-View - lottoView
-Controller - LottoController
+- Model - Lotto
+- View - lottoView
+- Controller - LottoController
 
 #### Controller
 
@@ -253,9 +253,9 @@ Controller - LottoController
 
 파일 구조도는 MVC 패턴을 따르고 있다.
 
-Model - Lotto
-View - LottoGameView
-Controller - LottoGame
+- Model - Lotto
+- View - LottoGameView
+- Controller - LottoGame
 
 #### Controller
 
@@ -295,9 +295,9 @@ resetLottoList() {
 
 파일 구조도는 MVC 패턴을 따르고 있다.
 
-Model - lotto, lottoManager
-View - lottoView
-Controller - lottoController
+- Model - lotto, lottoManager
+- View - lottoView
+- Controller - lottoController
 
 #### Controller
 
