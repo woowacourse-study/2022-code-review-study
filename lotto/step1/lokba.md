@@ -2,7 +2,7 @@
 
 - 분석 담당 코드
   - 후이 [#93](https://github.com/woowacourse/javascript-lotto/pull/93)
-  - 콤피
+  - 콤피 [#98](https://github.com/woowacourse/javascript-lotto/pull/98)
   - 돔하디
   - 민초
   - 블링
@@ -14,7 +14,7 @@
 
 ## 아키텍처 분석(desc: 담당한 4개의 소프트웨어의 아키텍처를 간단히 분석하고 설명합니다)
 
-### [#93] 후이
+### [#93] 후이, 콤피
 
 파일 구조도는 MVC 패턴을 따르고 있다.
 
@@ -77,12 +77,18 @@ Controller - LottoController
 
 ```javascript
 const lottoCount = inputMoney / LOTTO_SETTING.PRICE;
-Array.from({ length: lottoCount }, () =>
-  this.#lottos.push(new Lotto().generate())
-);
+
+Array.from({ length: lottoCount }, () => {
+  const lottoInstance = new Lotto();
+  lottoInstance.generateNumberList();
+
+  this.#lottos.push(lottoInstance);
+});
 ```
 
 Array.from의 length 속성을 이용하고, Array.from의 스펙을 잘 이용한 것 같다.
+
+<br>
 
 - scss 사용
 
@@ -102,7 +108,7 @@ $primary-color: #00bcd4;
 
 ### 아키텍처
 
-- [#93]
+- [#number]
 
 #### 함수/클래스
 
@@ -120,6 +126,8 @@ $primary-color: #00bcd4;
 
   - toggle 이라는거는 show -> hide, hide -> show 를 번갈아가면서 하겠다는 것을 내포하고 있는데 show 가 왜 붙어야하는지 모르겠습니다!
     - showLottoList, hideLottoList -> toggleLottoList로 정정
+
+<br>
 
 ### 컨벤션
 
@@ -147,6 +155,30 @@ $primary-color: #00bcd4;
   - 현재, 두 가지 View의 멤버변수는 `this.#container = $element`로 되어있다.
   - [리뷰어님 답변] : container 같이 element 에 대한 변수명을 지을 때 number, string 과 같은 값을 의미하는 변수와 구분을 두면 가독성이 좋아질 것 같습니다. 예를 들어 변수명 뒤에 ~~~Element 를 붙인다던지, element 변수명 앞에는 $ 를 붙인다던지 등등 규칙을 정하자!
 
+<br>
+
+- [#98] [리뷰어 질문] : selector 도 모두 상수화하신 게 인상깊네요. 개인적으로는 대문자 상수를 많이 쓰게 되면 가독성이 오히려 떨어지는 느낌인데, 쓰면서 어떠셨나요~?
+  - 콤피의 답변
+    - 가독성은 좋지는 않다.
+    - 추후 선택자를 수정사항이 생기면, 한 번에 변경이 가능하다.
+    - vscode의 자동 표기법이 편하다.
+
+<br>
+
+- [#98] 아래 코드에서는 Object.freeze를 할 필요없을까?
+  ```javascript
+  export const LOTTO_SETTING = {
+    MIN_RANDOM_NUMBER: 1,
+    MAX_RANDOM_NUMBER: 45,
+    PRICE: 1000,
+    LOTTO_NUMBER_LENGTH: 6,
+  };
+  ```
+  - 객체는 변경가능해지기도 해서 상수는 보통 문자열로 선언해 사용한다.
+  - 변수명 자체를 대문자로 쓰는 편이라, Object.freeze를 하지 않는다.
+
+<br>
+
 ### 테스트
 
-- [#93]
+- [#number]
