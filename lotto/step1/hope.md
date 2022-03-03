@@ -240,7 +240,6 @@ export const bindEventListener = ({ appElement, type, selector, callback }) => {
 
 
 ## 피드백 정리
-### 대분류(ex: 아키텍처, 함수/클래스, 컨벤션, DOM, 테스트 등)
 ### 컨벤션
 - [#116] switch 문 
 	- break를 하기보다 return을 바로 하는게 더 안전하지 않을까요? 또한 break를 하고 마지막에 return하기보다 액션이 없는경우 default로 return 하는것이 더 명료할것 같아요.
@@ -278,10 +277,6 @@ const isDivisibleBy = (payment, price) => {
 - [#83] - set
 	- setOnSubmitCash 네이밍도 나쁘진 않은 것 같은데 아무래도 네이밍 앞에 set이 붙으면 이벤트 바인딩보다는 내부에 있는 상태를 설정하는 느낌이 드네요 
 
-
-
-### 아키텍쳐
-
 ### DOM
 - [#113] SVG vs PNG
 	- 이미지를 svg로 사용하게 되면 좋은 이유:
@@ -293,8 +288,6 @@ const isDivisibleBy = (payment, price) => {
 	* 백그라운드 이미지와 같이 이미지를 벡터화하기 어려울 경우
 	디자이너가 넘겨주는 파일을 사용하는게 맞겠지만,
 	백그라운드 이미지와 같이 이미지를 벡터화하기 어렵다면 png를 사용하고 그렇지 않은 경우에는 svg를 사용하는 편이 좋은 거군요?! 
-
-### 테스트 
 
 ### CSS
 - [#116] CSS 선택자
