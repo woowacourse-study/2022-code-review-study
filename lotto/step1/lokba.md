@@ -55,6 +55,7 @@ Controller - LottoController
   - Controller에서 인스턴스 생성시 전달한 dom 객체를 멤버변수로 할당하고 있다.
 
   ```javascript
+  //View
   #container;
 
   constructor($element){
@@ -208,7 +209,7 @@ Controller - LottoMachineController
   }
   ```
 
-  - 효율/성능을 따져야할 만큼 심각한 성능저하가 따르는 경우가 아닌 한은 읽기좋은 코드 / 간단한 코드를 작성하는 다양한 방법을 생각해 보시면 좋겠다
+  - [리뷰어 답변] 효율/성능을 따져야할 만큼 심각한 성능저하가 따르는 경우가 아닌 한은 읽기좋은 코드 / 간단한 코드를 작성하는 다양한 방법을 생각해 보시면 좋겠다.
 
     <br>
 
@@ -352,7 +353,26 @@ Controller - lottoController
 };
 ```
 
-- 구조 분해(destructuring)이 인상깊다.
+- 구조 분해(destructuring)가 인상깊다.
+
+<br>
+
+```javascript
+#generateLottoElement(lotto) {
+  const lottoElement = createElementWithClassName('div', CLASSNAMES.LOTTO_CLASSNAME);
+
+  const lottoImage = createElementWithClassName('p', CLASSNAMES.LOTTO_IMAGE_CLASSNAME);
+  lottoImage.textContent = LOTTO_IMAGE;
+
+  const lottoNumbers = createElementWithClassName('p', CLASSNAMES.LOTTO_NUMBERS_CLASSNAME);
+  lottoNumbers.textContent = Array.from(lotto.lottoNumberSet).join(', ');
+
+  lottoElement.append(lottoImage, lottoNumbers);
+  return lottoElement;
+}
+```
+
+- innerHTML, insertAdjacentHTML을 피하고, append을 쓴게 인상깊다.
 
 <br>
 
@@ -368,10 +388,7 @@ Controller - lottoController
 
 - [#103] Controller와 View의 의존성을 끊는 방법
   - Controller와 View의 의존성을 끊기 위해서는 다양한 방법이 있는데, 웹에서는 흔히 customEvent를 활용합니다. View에서 이벤트핸들러를 등록하고, 그 핸들러 내부에서 위의 customEvent를 dispatch합니다. Controller에서는 여러가지 customEvent를 수신해서 동작을 수행합니다.
-  - window객체에 메서드(dispatch)를 만들어두는 방법으로 우회하는 방법도 있습니다.
-    View에서 등록한 핸들러 내부에서 적정한 타입/값을 담은 dispatch를 호출합니다.
-    dispatch함수는 인자를 받아 controller들에게 알립니다(publish).
-    해당 타입을 subscribe하고 있는 controller가 이를 처리합니다.
+  - window객체에 메서드(dispatch)를 만들어두는 방법으로 우회하는 방법도 있습니다. View에서 등록한 핸들러 내부에서 적정한 타입/값을 담은 dispatch를 호출합니다. dispatch함수는 인자를 받아 controller들에게 알립니다(publish). 해당 타입을 subscribe하고 있는 controller가 이를 처리합니다.
 
 <br>
 
@@ -521,15 +538,9 @@ Controller - lottoController
 this.view.renderLottos(this.lottoManager.lottos);
 
 //간접 접근
-const lottos = this.lottoManager.getLottos;
+const lottos = this.lottoManager.getLottos();
 this.view.renderLottos(lottos);
 ```
-
-<br>
-
-### 테스트
-
-- [#number]
 
 <br>
 
