@@ -1,7 +1,7 @@
-Level번호 미션명 Step번호(담당 PR 번호들) - 호프
+# Level1 로또 Step1(담당 PR 번호들) - 호프
 - 분석 담당 코드
     - [#83-시지프 ](https://github.com/woowacourse/javascript-lotto/pull/83)
-    - [#89-호프 ]([https://github.com/woowacourse/javascript-lotto/pull/89)
+    - [#89-호프](https://github.com/woowacourse/javascript-lotto/pull/89)
     - [#116-티거](https://github.com/woowacourse/javascript-lotto/pull/116)
     - [#119-병민](https://github.com/woowacourse/javascript-lotto/pull/119)
     - [#112-도리](https://github.com/woowacourse/javascript-lotto/pull/112)
@@ -240,7 +240,6 @@ export const bindEventListener = ({ appElement, type, selector, callback }) => {
 
 
 ## 피드백 정리
-### 대분류(ex: 아키텍처, 함수/클래스, 컨벤션, DOM, 테스트 등)
 ### 컨벤션
 - [#116] switch 문 
 	- break를 하기보다 return을 바로 하는게 더 안전하지 않을까요? 또한 break를 하고 마지막에 return하기보다 액션이 없는경우 default로 return 하는것이 더 명료할것 같아요.
@@ -272,15 +271,11 @@ const isDivisibleBy = (payment, price) => {
   return parseInt(payment / price);
 };
 ``` 
-	- 저는 파라미터가 두번째 파라미터로 나누어 떨어져? 라고 물어봤는데 응/아니야 라고 대답하는 게 아니라 Error! / 계산된 값 줄게 으로 대답하는 게 조금은 이상한데 어떻게 생각하시는 지 궁금합니다…! isDivisibleBy 보단 차라리, divideBy 가 어떨까 싶어요..! (이걸로 나눠줘! -> 불가능 그러니까 에러 발생시킬게! / 그래 여기)
-- 
+- 저는 파라미터가 두번째 파라미터로 나누어 떨어져? 라고 물어봤는데 응/아니야 라고 대답하는 게 아니라 Error! / 계산된 값 줄게 으로 대답하는 게 조금은 이상한데 어떻게 생각하시는 지 궁금합니다…! isDivisibleBy 보단 차라리, divideBy 가 어떨까 싶어요..! (이걸로 나눠줘! -> 불가능 그러니까 에러 발생시킬게! / 그래 여기)
+
 ### 네이밍
 - [#83] - set
 	- setOnSubmitCash 네이밍도 나쁘진 않은 것 같은데 아무래도 네이밍 앞에 set이 붙으면 이벤트 바인딩보다는 내부에 있는 상태를 설정하는 느낌이 드네요 
-
-
-
-### 아키텍쳐
 
 ### DOM
 - [#113] SVG vs PNG
@@ -293,8 +288,6 @@ const isDivisibleBy = (payment, price) => {
 	* 백그라운드 이미지와 같이 이미지를 벡터화하기 어려울 경우
 	디자이너가 넘겨주는 파일을 사용하는게 맞겠지만,
 	백그라운드 이미지와 같이 이미지를 벡터화하기 어렵다면 png를 사용하고 그렇지 않은 경우에는 svg를 사용하는 편이 좋은 거군요?! 
-
-### 테스트 
 
 ### CSS
 - [#116] CSS 선택자
