@@ -212,8 +212,6 @@
 
 ### CSS
 
-- `display: none`은 영역에서 아예 사라지게 하는 스타일이므로 검색엔진이나 스크린리더에서 접근이 불가 - [PR 102](https://github.com/woowacourse/javascript-lotto/pull/102#discussion_r816348984)
-  - `<h2>로또 섹션입니다~~</h2>`방식으로 제목을 넣어 숨기는 방식보다는 section을 쓰지 않는 방법도 있다.
 - 기본 태그 (`input`, `p` 등)으로 스타일을 조정하면 서비스가 커질 때 사이드 이펙트를 발생시킬 확률이 높다. - [PR 109](https://github.com/woowacourse/javascript-lotto/pull/109#discussion_r813836290)
 - user agent stylesheet를 고려한 [reset.css](https://abcdqbbq.tistory.com/9) - [PR 90](https://github.com/woowacourse/javascript-lotto/pull/90#discussion_r813975297)
 - css를 HTML에 link를 통해 import할 경우 css의 rule이 전역에서 사용된다. 이는 사이드 이팩트를 일으킴. 이런 문제를 해결하기 위해 [css 모듈화](https://blog.toycrane.xyz/css%EC%9D%98-%EC%A7%84%ED%99%94-%EA%B3%BC%EC%A0%95-f7c9b4310ff7)가 진행 - [PR 94](https://github.com/woowacourse/javascript-lotto/pull/94#pullrequestreview-894384954)
