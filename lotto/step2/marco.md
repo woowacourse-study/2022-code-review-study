@@ -1,4 +1,4 @@
-# Level1 Lotto Step1(담당 PR 번호들) - 마르코
+# Level1 Lotto Step2(담당 PR 번호들) - 마르코
 
 - 분석 담당 코드
   - 준찌 [#121](https://github.com/woowacourse/javascript-lotto/pull/121)
