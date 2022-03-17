@@ -1,8 +1,20 @@
-# Level1 LottoMission Step2 코드리뷰 피드백 정리
+# 주간 코리스 [🎱행운의 로또 2호]
 
-- 우아한테크코스 프론트엔드 4기
-  - 각 목록의 앞에 출처 PR번호 기재
-- 작성자 : 코드리뷰스터디(마르코(@wonsss), 호프(@moonheekim0118), 무비(@byhhh2), 록바(@lokba), 꼬재(@kkojae91))
+## 0. 코리스 설명
+
+- [코드리뷰스터디(코리스)](https://github.com/woowacourse-study/2022-code-review-study)는 `함께 자라기 🌱`를 지향해요.
+
+- 이번 호에 정리한 코드리뷰 피드백 대상은 `Level1 LottoMission Step2`입니다.
+- 스터디원이 아니시더라도 본 자료에 대한 피드백 및 [디스커션](https://github.com/woowacourse-study/2022-code-review-study/discussions) 참여 등을 모두 환영해요.💚
+
+- 자료 : 우아한테크코스 프론트엔드 4기 코드리뷰
+  - 각 목록의 앞에 해당 PR번호 기재
+- 편집 : 코드리뷰스터디원
+  - 마르코(@wonsss)
+  - 호프(@moonheekim0118)
+  - 무비(@byhhh2)
+  - 록바(@lokba)
+  - 꼬재(@kkojae91)
 
 ## 1. 함수
 
@@ -44,11 +56,11 @@
 
 ### 1-2. try-catch
 
-- `try-catch`의 장점은 오류가 있을 경우 즉시 실행을 멈춘다는 점과 에러 핸들링을 할 수 있다는 점이 있다. - [PR 136](https://github.com/woowacourse/javascript-lotto/pull/136#discussion_r820396206)
+- `try-catch`의 장점은 오류가 있을 경우 즉시 실행을 멈춘다는 점과 에러 핸들링을 할 수 있다는 점 등이다. - [PR 136](https://github.com/woowacourse/javascript-lotto/pull/136#discussion_r820396206)
 
 ### 1-3. reduce
 
-- [PR 142](https://github.com/woowacourse/javascript-lotto/pull/142#discussion_r820230362) 객체의 프로퍼티를 이용하여 계산할 때 [`reduce`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)를 사용해보자.
+- [[#PR 142]](https://github.com/woowacourse/javascript-lotto/pull/142#discussion_r820230362) 객체의 프로퍼티를 이용하여 계산할 때 [`reduce`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)를 사용해보자.
 
   - `entries()`의 사용
 
