@@ -4,7 +4,7 @@
 
 - [코드리뷰스터디(코리스)](https://github.com/woowacourse-study/2022-code-review-study)는 `함께 자라기 🌱`를 지향해요.
 
-- 이번 호에 정리한 코드리뷰 피드백 대상은 `Level1 LottoMission Step2`입니다.
+- 이번 호에 정리한 코드리뷰 피드백 주제는 `Level1 LottoMission Step2`입니다.
 - 스터디원이 아니시더라도 본 자료에 대한 피드백 및 [디스커션](https://github.com/woowacourse-study/2022-code-review-study/discussions) 참여 등을 모두 환영해요.💚
 
 - 자료 : 우아한테크코스 프론트엔드 4기 코드리뷰
@@ -207,7 +207,7 @@ console.log(Array.from([1, 2, 3], x => x + x));
 
 ### 1-10. 객체 깊은 복사
 
-- [PR 156](https://github.com/woowacourse/javascript-lotto/pull/156#discussion_r820578491) 객체를 깊은 복사하는 방법에는 `JSON.parse(JSON.stringify(object))`가 있다. 주의할 점은 객체안의 함수는 복사되지 않는다.
+- [[#156]](https://github.com/woowacourse/javascript-lotto/pull/156#discussion_r820578491) 객체를 깊은 복사하는 방법에는 `JSON.parse(JSON.stringify(object))`가 있다. 주의할 점은 객체안의 함수는 복사되지 않는다.
 
 ## 2. 클래스와 메서드
 
@@ -350,7 +350,7 @@ console.log(Array.from([1, 2, 3], x => x + x));
 
 ### 3-4. 렌더링
 
-- [PR 146](https://github.com/woowacourse/javascript-lotto/pull/146#discussion_r820173527) template가 반복될 때 `map`을 사용해주자.
+- [[#146]](https://github.com/woowacourse/javascript-lotto/pull/146#discussion_r820173527) template가 반복될 때 `map`을 사용해주자.
 
 ## 4. 이벤트
 
@@ -444,17 +444,17 @@ console.log(Array.from([1, 2, 3], x => x + x));
     }
     ```
 
-- [PR 146](https://github.com/woowacourse/javascript-lotto/pull/146#discussion_r820577052) 비슷한 방식으로 여러 요소의 이벤트를 처리해야할 때 [이벤트 위임](https://ko.javascript.info/event-delegation)을 사용해보자. -
+- [[#146]](https://github.com/woowacourse/javascript-lotto/pull/146#discussion_r820577052) 비슷한 방식으로 여러 요소의 이벤트를 처리해야할 때 [이벤트 위임](https://ko.javascript.info/event-delegation)을 사용해보자. -
 
 ## 5. 클린코드
 
 ### 5-1. Boolean을 return할 경우
 
-- [PR 142](https://github.com/woowacourse/javascript-lotto/pull/142#discussion_r820095323) Boolean을 `return`할 경우 조건을 `return`할 수 있는지 확인해주자.
+- [[#142]](https://github.com/woowacourse/javascript-lotto/pull/142#discussion_r820095323) Boolean을 `return`할 경우 조건을 `return`할 수 있는지 확인해주자.
 
 ### 5-2. 인자
 
-- 두개 이상의 인자를 받을 경우 객체 형태로 넣어주세요. [인자는 2개 이하가 이상적입니다.](https://github.com/qkraudghgh/clean-code-javascript-ko#%ED%95%A8%EC%88%98functions) - [PR 140](https://github.com/woowacourse/javascript-lotto/pull/140#discussion_r820068616)
+- [[#140]](https://github.com/woowacourse/javascript-lotto/pull/140#discussion_r820068616) 두개 이상의 인자를 받을 경우 객체 형태로 넣어주세요. [인자는 2개 이하가 이상적입니다.](https://github.com/qkraudghgh/clean-code-javascript-ko#%ED%95%A8%EC%88%98functions)
   - 매개변수가 많으면 가독성 측면에서 좋지 않고, 유지보수할 때 실수를 유발할 수 있다. - [PR 136](https://github.com/woowacourse/javascript-lotto/pull/136#discussion_r820088741)
 
 ### 5-3. 네이밍
@@ -505,9 +505,9 @@ console.log(Array.from([1, 2, 3], x => x + x));
   intersection(arrayA, arrayB);
   ```
 
-- [PR 156](https://github.com/woowacourse/javascript-lotto/pull/156#discussion_r820520699) `init`은 가장 처음을 위한 초기화에 가깝다. (reset이 아님)
+- [[#156]](https://github.com/woowacourse/javascript-lotto/pull/156#discussion_r820520699) `init`은 가장 처음을 위한 초기화에 가깝다. (reset이 아님)
 
-- [PR 120](https://github.com/woowacourse/javascript-lotto/pull/120#discussion_r817495192) `submit`은 `form`에 있는 데이터를 제출한다는 의미로 많이 사용된다. toggle 같은 함수에서 붙일 필요가 없다. (예시 - `submitLottoToggle()`라는 이름의 함수)
+- [[#120]](https://github.com/woowacourse/javascript-lotto/pull/120#discussion_r817495192) `submit`은 `form`에 있는 데이터를 제출한다는 의미로 많이 사용된다. toggle 같은 함수에서 붙일 필요가 없다. (예시 - `submitLottoToggle()`라는 이름의 함수)
 
 - [#148] 변수명은 요구사항이 변경되어도 수정되지 않도록 네이밍 해야한다. - [바로가기](https://github.com/woowacourse/javascript-lotto/pull/148/files/027ff954b472b18deb84a8365466096f4b947fee#r820450287)
 
@@ -556,7 +556,8 @@ console.log(Array.from([1, 2, 3], x => x + x));
 
 ### 5-7. 공통으로 관리하는 변수는 배열과 객체로 묶기
 
-- 변수가 많으면 관리포인트가 많아진다. 공통으로 관리할 수 있는 부분은 배열과 객체를 이용하자. - [PR 136](https://github.com/woowacourse/javascript-lotto/pull/136#discussion_r820089422)
+- [[#136]](https://github.com/woowacourse/javascript-lotto/pull/136#discussion_r820089422)
+  변수가 많으면 관리포인트가 많아진다. 공통으로 관리할 수 있는 부분은 배열과 객체를 이용하자.
 
 ## 6. CSS, HTML
 
@@ -584,7 +585,7 @@ console.log(Array.from([1, 2, 3], x => x + x));
 
 ### 6-4. `<fieldset>` `<legend>`
 
-- [PR 146](https://github.com/woowacourse/javascript-lotto/pull/146#discussion_r820173289) [`fieldset`](https://developer.mozilla.org/ko/docs/Web/HTML/Element/fieldset)을 사용하면 여러 `input`과 하나의 `label`을 묶어줄 수 있습니다. 이는 하나의 `form`안에 두는 것이 일반적입니다.
+- [[#146]](https://github.com/woowacourse/javascript-lotto/pull/146#discussion_r820173289) [`fieldset`](https://developer.mozilla.org/ko/docs/Web/HTML/Element/fieldset)을 사용하면 여러 `input`과 하나의 `label`을 묶어줄 수 있습니다. 이는 하나의 `form`안에 두는 것이 일반적입니다.
 
 - [#129] fieldset과 legend 활용 예시
 
@@ -661,25 +662,25 @@ console.log(Array.from([1, 2, 3], x => x + x));
   }
   ```
 
-- [PR 142](https://github.com/woowacourse/javascript-lotto/pull/142#discussion_r820071137) 앱에서 중복적으로 사용되는 CSS는 변수로 [분리](https://developer.mozilla.org/ko/docs/Web/CSS/:root)해주자
+- [[#142]](https://github.com/woowacourse/javascript-lotto/pull/142#discussion_r820071137) 앱에서 중복적으로 사용되는 CSS는 변수로 [분리](https://developer.mozilla.org/ko/docs/Web/CSS/:root)해주자
 
-- [PR 120](https://github.com/woowacourse/javascript-lotto/pull/120#discussion_r820346138)색상 표기는 통일성이 있게 해보자.
+- [[#120]](https://github.com/woowacourse/javascript-lotto/pull/120#discussion_r820346138)색상 표기는 통일성이 있게 해보자.
 
 ### 6-9. cursor: not-allowed
 
-- [PR 142](https://github.com/woowacourse/javascript-lotto/pull/142#discussion_r820072764) 버튼이 disable 상태일 때 `cursor: not-allowed;`를 적용해줘야할까?
+- [[#142]](https://github.com/woowacourse/javascript-lotto/pull/142#discussion_r820072764) 버튼이 disable 상태일 때 `cursor: not-allowed;`를 적용해줘야할까?
   - `cursor: not-allowed;`을 적용했을 시 디자인적인 문제가 있다.
   - 대부분의 서비스에서 찾아볼 수 없다.
   - bootstrap에서 위 같은 문제로 삭제된 [전례](https://github.com/twbs/bootstrap/issues/22222)가 있다.
 
 ### 6-10. CSS 방법론
 
-- [PR 136](https://github.com/woowacourse/javascript-lotto/pull/136#issuecomment-1060243153) CSS에도 [방법론](https://whales.tistory.com/33)이 존재한다.
+- [[#136]](https://github.com/woowacourse/javascript-lotto/pull/136#issuecomment-1060243153) CSS에도 [방법론](https://whales.tistory.com/33)이 존재한다.
   - BEM 등
 
 ### 6-11. 0px 등은 `0`으로
 
-- [PR 142](https://github.com/woowacourse/javascript-lotto/pull/142#discussion_r820072820)
+- [[#142]](https://github.com/woowacourse/javascript-lotto/pull/142#discussion_r820072820)
   길이에서 `0px`을 표기하고 싶을 때 `0`을 사용하자. 이는 선택이지만 [권장사항](https://www.w3.org/TR/css-values-3/#lengths) -
 
 ### 6-12. 부드러운 스크롤
@@ -819,16 +820,16 @@ jest.spyOn(Utils, "generateRandomInRange");
 
 ### 8-4. MVC 패턴
 
-- [PR 142](https://github.com/woowacourse/javascript-lotto/pull/142#issuecomment-1059778168) (_데이터 변경이 없는 이벤트에 대한 처리는 View에서 해야할까요? Controller에서 해야할까요?_)
-  - Controller를 통해 이벤트를 처리할 필요가 없다면 View
+- [[#142]](https://github.com/woowacourse/javascript-lotto/pull/142#issuecomment-1059778168) (_데이터 변경이 없는 이벤트에 대한 처리는 View에서 해야할까요? Controller에서 해야할까요?_)
+  - Controller를 통해 이벤트를 처리할 필요가 없다면 View가 적절할 수 있다.
 
 ### 8-5. 역할
 
-- [PR 123](https://github.com/woowacourse/javascript-lotto/pull/123#pullrequestreview-900065374) 구조가 맡는 역할이 모호해지면, 코드가 길어지고 가독성이 떨어진다.
+- [[#123]](https://github.com/woowacourse/javascript-lotto/pull/123#pullrequestreview-900065374) 구조가 맡는 역할이 모호해지면, 코드가 길어지고 가독성이 떨어진다.
 
 ### 8-6. 디렉토리
 
-- [PR 136](https://github.com/woowacourse/javascript-lotto/pull/136#discussion_r820087835) 하나의 `index.js`에 많은 `import`를 한다면 가독성이 떨어질 수 있다. 만약 여러개의 View를 하나의 `index.js`에서 `import`하고 있다면 View 디렉토리에 새로운 `index.js`를 만들고 이를 `import`해주는 방식을 고려해보자.
+- [[#136]](https://github.com/woowacourse/javascript-lotto/pull/136#discussion_r820087835) 하나의 `index.js`에 많은 `import`를 한다면 가독성이 떨어질 수 있다. 만약 여러개의 View를 하나의 `index.js`에서 `import`하고 있다면 View 디렉토리에 새로운 `index.js`를 만들고 이를 `import`해주는 방식을 고려해보자.
 
 ## 9. 기타
 
@@ -844,9 +845,10 @@ jest.spyOn(Utils, "generateRandomInRange");
 
 ### 9-2. 좋은 커밋 메시지
 
-- 좋은 커밋 메시지에는 what과 why가 들어가 있어야 한다. - [PR 123](https://github.com/woowacourse/javascript-lotto/pull/123#pullrequestreview-901594861)
+- [[#123]](https://github.com/woowacourse/javascript-lotto/pull/123#pullrequestreview-901594861) 좋은 커밋 메시지에는 what과 why가 들어가 있어야 한다.
   - title에 what(무엇을 작성했는 지), 내용에 why(왜 이 커밋을 작성했는 지)
 
 ### 9-3. PR 리뷰 잘 받는 팁
 
-- 커밋에서 피드백이 잘 반영되었다는 것을 리뷰어님께 알려드리고 싶다면, comment에 커밋 넘버를 남기자. - [PR 123](https://github.com/woowacourse/javascript-lotto/pull/123#pullrequestreview-901594861)
+- [[#123]](https://github.com/woowacourse/javascript-lotto/pull/123#pullrequestreview-901594861)
+  커밋에서 피드백이 잘 반영되었다는 것을 리뷰어님께 알려드리고 싶다면, comment에 커밋 넘버를 남기자.
