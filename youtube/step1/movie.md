@@ -89,6 +89,22 @@ class SearchResult extends CustomElement {}
 ```
 
 <br />
+
+### [[#107](https://github.com/woowacourse/javascript-youtube-classroom/pull/107) X [PR 113](https://github.com/woowacourse/javascript-youtube-classroom/pull/113)] 우디 X 시지프
+
+> 기존에 MVC 패턴으로 코드를 짜왔는데, 이벤트가 발생할 때 데이터를 바꾸어주고, UI를 바꾸어 주는 작업이 조금 번거롭다고 생각했습니다. 그래서 React처럼 상태 정의하고, 상태가 변하면 UI가 바뀌게 짜기로 했습니다
+
+- 리액트처럼 짜려고 한 코드!
+- UI를 컴포넌트화
+  - `component`라는 부모 클래스(core)가 존재하고 만들어지는 component들이 이를 상속받는 구조
+  - component의 생성자에는 target(component의 element)와 props를 넘겨준다.
+    - component에서 써야하는 함수 등을 `props`로 넘겨준다.
+  - component는 리액트와 비슷하게 `beforeMounted()`, `afterMounted()` 등의 함수가 존재한다.
+- state
+  - component만의 지역 상태 존재
+  - 전역 state는 rootStore에서 관리하고 state가 변경되었을 때 구독한 컴포넌트를 재 렌더링한다.
+
+<br />
 <br />
 
 ## 피드백 정리
@@ -99,7 +115,7 @@ class SearchResult extends CustomElement {}
 
 ### 구조
 
-[[#94](https://github.com/woowacourse/javascript-youtube-classroom/pull/94#discussion_r827920206)] 모듈 간의 연결 방식은 통일 해주자! (어떤 모듈은 클래스의 멤버변수로 지정해주고, 어떤 모듈은 import해주는 방식이 혼용되면 일관성이 떨어진다.)
+[[#94](https://github.com/woowacourse/javascript-youtube-classroom/pull/94#discussion_r827920206)] 모듈 간의 연결 방식은 통일 해주자! (어떤 모듈은 클래스의 멤버변수로 지정해주고, 어떤 모듈은 import해주는 방식이 혼용되면 일관성이 떨어진다.) \*
 
 ### 함수
 
@@ -111,7 +127,7 @@ class SearchResult extends CustomElement {}
 
 ### 클래스
 
-[[#101](https://github.com/woowacourse/javascript-youtube-classroom/pull/101#discussion_r827513622)] 클래스에서 불필요한 getter와 setter는 지양하자.
+[[#101](https://github.com/woowacourse/javascript-youtube-classroom/pull/101#discussion_r827513622)] 클래스에서 불필요한 getter와 setter는 지양하자. \*
 
 > 객체의 상태가 변경되는 것은 객체 스스로의 행동에 의해서야 한다. => 느슨한 결합과 유연한 협력 - "객체지향의 사실과 오해"
 
@@ -135,7 +151,12 @@ class SearchResult extends CustomElement {}
 
 [[#94](https://github.com/woowacourse/javascript-youtube-classroom/pull/94#discussion_r827932240)] `input`태그의 값이 필수적이라면 [required](http://www.tcpschool.com/html-tag-attrs/input-required)를 지정해주는 것을 고려해보자. \*
 
-[[#108](https://github.com/woowacourse/javascript-youtube-classroom/pull/108)] 태그의 속성 중 [`role`](https://happycording.tistory.com/entry/HTML-Role-%EC%99%9C-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC%EB%A7%8C-%ED%95%98%EB%8A%94%EA%B0%80)은 element에게 명확한 의미를 부여해준다. (웹 접근성을 위한 속성) \*
+```html
+<input required />
+<!-- 사용자가 input태그를 작성하지 않았을 경우 form이 제출되지 않습니다. -->
+```
+
+[[#108](https://github.com/woowacourse/javascript-youtube-classroom/pull/108#discussion_r825376270)] 태그의 속성 중 [`role`](https://happycording.tistory.com/entry/HTML-Role-%EC%99%9C-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC%EB%A7%8C-%ED%95%98%EB%8A%94%EA%B0%80)은 element에게 명확한 의미를 부여해준다. (웹 접근성을 위한 속성) \*
 
 <br />
 
@@ -171,9 +192,9 @@ return localStorage.getItem('videos')
 return JSON.parse(localStorage.getItem('videos') ?? '[]');
 ```
 
-[[#113](https://github.com/woowacourse/javascript-youtube-classroom/pull/113#discussion_r826976214)] 테스트를 진행할 떄 CLI만 사용해서는 코드레벨에서의 에러를 확인하기 어려운 경우가 많다. jest plug-in과 같은 도구를 사용해보자.
+[[#113](https://github.com/woowacourse/javascript-youtube-classroom/pull/113#discussion_r826976214)] 테스트를 진행할 떄 CLI만 사용해서는 코드레벨에서의 에러를 확인하기 어려운 경우가 많다. jest plug-in과 같은 도구를 사용해보자. \*
 
-[[#94](https://github.com/woowacourse/javascript-youtube-classroom/pull/94#discussion_r825287822)] export를 묶어서 해줄 수도 있다.
+[[#94](https://github.com/woowacourse/javascript-youtube-classroom/pull/94#discussion_r825287822)] export를 묶어서 해줄 수도 있다. \*
 
 ```js
 const MAX_SAVE_COUNT = 100;
@@ -194,7 +215,7 @@ export { MAX_SAVE_COUNT, STORAGE_KEY };
 
 이 모든 문제는 [debounce와 throttle](https://techcourse.woowahan.com/s/dSWvXWYI/ls/Is8GTQl7)를 통해 해결가능하다.
 
-[[#107](https://github.com/woowacourse/javascript-youtube-classroom/pull/107#discussion_r825312544)] 웹 성능 최적화를 위해 현재 화면에 보여지지 않는 이미지를 추후에 로딩하여 초기 로딩시간을 줄이는 [lazy loading기법을 간단히 태그의 loading 속성을 통해 적용해줄 수 있다.](https://web.dev/i18n/ko/browser-level-image-lazy-loading/)
+[[#107](https://github.com/woowacourse/javascript-youtube-classroom/pull/107#discussion_r825312544)] 웹 성능 최적화를 위해 현재 화면에 보여지지 않는 이미지를 추후에 로딩하여 초기 로딩시간을 줄이는 [lazy loading기법을 간단히 태그의 loading 속성을 통해 적용해줄 수 있다.](https://web.dev/i18n/ko/browser-level-image-lazy-loading/) \*
 
 ```html
 <img ... loading="lazy" />
