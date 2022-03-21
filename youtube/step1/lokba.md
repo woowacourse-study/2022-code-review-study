@@ -15,6 +15,143 @@
 
 #### [#76, #81] 자스민, 동키콩
 
+#### 클래스 다이어그램
+
+<img src="./img/class_diagram.png">
+
+- 큰 틀로 도메인과 UI를 나누어 설계하였다.
+- 도메인
+
+  - SearchMachine
+  - SearchMachine에서 접근해서 사용하는 파일(VideoFactory, Video, localStorage)
+
+- UI
+
+  - MainPage
+  - SearchModal
+  - Templates
+
+#### 인상 깊었던 점
+
+- 1. **template을 관리하는 구조**
+
+  ```jsx
+  const template = {
+    videoItems: ({...}) => `...`,
+
+    noSearchResult: () => `...`,
+
+    skeletonItem: () => `...`,
+
+    exceedCapacityErrorImage: () => `...`,
+  };
+  ```
+
+  - template이라는 객체안에 메소드를 만들어 불러올 수 있게끔 구조.
+
+<br>
+
+- 2. **Video 객체를 만들때 사용한 팩토리 패턴과 빌더 패턴**
+
+  ```jsx
+  // 호출하는 부분
+  data.items.map((item) => VideoFactory.generate(item));
+
+  // 팩토리 패턴
+  class VideoFactory {
+    static generate(item) {
+      const { videoId } = item.id;
+      const isSaved = checkSavedVideo(videoId);
+      const {
+        thumbnails: {
+          high: { url },
+        },
+        channelTitle,
+        title,
+        publishTime,
+      } = item.snippet;
+
+      return Video.Builder()
+        .setId(videoId)
+        .setThumbnails(url)
+        .setTitle(title)
+        .setChannelTitle(channelTitle)
+        .setPublishTime(publishTime)
+        .setIsSaved(isSaved)
+        .build();
+    }
+  }
+  ```
+
+  - 팩토리 패턴에 대해서 잘 모른다면, [이 영상 : 6분 8초~](https://www.youtube.com/watch?v=q3_WXP9pPUQ&t=81s)을 추천한다.
+  - 팩토리 패턴에 대해서 잘 모른다면, [게시글](https://readystory.tistory.com/117)을 추천한다.
+  - 팩토리 패턴을 이용해서, Factory클래스에 접근하는 곳에서 어떠한 일이 일어나는지 예측할 수 없도록 코드를 구상하였다.
+  - 내가 생각하는 아쉬운 점 : 현재는 Video에 대한 객체만 생성하는데 팩토리 패턴을 굳이 만들 필요가 있었나 싶다. 시도로는 아주 굿이다.
+
+<br>
+
+- 3. **팩토리 패턴에서, Video 객체를 생성할때 사용한 클로저 활용 빌더 패턴**
+
+  ```jsx
+  //호출하는 부분
+  Video.Builder()
+    .setId(videoId)
+    .setThumbnails(url)
+    .setTitle(title)
+    .setChannelTitle(channelTitle)
+    .setPublishTime(publishTime)
+    .setIsSaved(isSaved)
+    .build();
+
+
+  //빌더 패턴
+  export default class Video {
+    ... 필요없는 부분 생략
+
+    static Builder() {
+      let id;
+      let thumbnails = "NO_THUNBMNAILS";
+      let channelTitle = "NO_CHANNEL_TITLE";
+      let title = "NO_TITLE";
+      let publishTime = "1000/01/01";
+      let isSaved = false;
+
+      return {
+        setId: function (value) {
+          id = value;
+          return this;
+        },
+
+        setTitle: function (name) {...},
+
+        setThumbnails: function (url) {...},
+
+        setChannelTitle: function (name) {...},
+
+        setPublishTime: function (time) {...},
+
+        setIsSaved: function (saved) {...},
+
+        build: () => {
+          if (!id) throw new Error(ERROR_MESSAGE.NO_ID);
+          return new Video({
+            id,
+            thumbnails,
+            title,
+            channelTitle,
+            publishTime,
+            isSaved,
+          });
+        },
+      };
+    }
+  }
+  ```
+
+  - 빌더 패턴에 대해서 잘 모른다면, [게시글](https://readystory.tistory.com/121)을 추천한다.
+  - 빌더 패턴은 복잡한 객체를 생성하는 방법을 정의하는 클래스와 표현하는 방법을 정의하는 클래스를 별도로 분리하여, 서로 다른 표현이라도 이를 생성할 수 있는 동일한 절차를 제공하는 패턴
+  - 내가 생각하는 사용한 의도 : Video 객체에 들어가는 property가 많다보니, 가독성과 선언적으로 구성하고 싶어 사용한 것으로 추측됨.
+
 <br>
 
 ## 피드백 정리
@@ -26,8 +163,8 @@
 #### 1-1 도메인과 UI
 
 - [#76] 도메인과 UI를 굳이 왜 나누어야 하는가? - [바로가기](https://github.com/woowacourse/javascript-youtube-classroom/pull/76#pullrequestreview-907964309)
-  - domain과 ui를 왜 나누어야하는지 질문을 주셨는데 domain과 ui가 코드가 같이 있다면 ui를 얼마나 재사용 할 수 있을까요? 또한 지금 작성하신 searchModal view를 유투브 검색이 아니라 다른 플랫폼영상 검색 view로 재사용 가능한지 생각해보면 좋을것 같습니다. 소프트웨어 설계에서 '결합도(coupling)'에 대해서 공부하시면 도움이 될듯합니다.
-  - 관련 키워드 : 낮은 결합도와 높은 응집도 ([내가 추천하는 게시글](https://madplay.github.io/post/coupling-and-cohesion-in-software-engineering))
+- domain과 ui를 왜 나누어야하는지 질문을 주셨는데 domain과 ui가 코드가 같이 있다면 ui를 얼마나 재사용 할 수 있을까요? 또한 지금 작성하신 searchModal view를 유투브 검색이 아니라 다른 플랫폼영상 검색 view로 재사용 가능한지 생각해보면 좋을것 같습니다. 소프트웨어 설계에서 '결합도(coupling)'에 대해서 공부하시면 도움이 될듯합니다.
+- 관련 키워드 : 낮은 결합도와 높은 응집도 ([내가 추천하는 게시글](https://madplay.github.io/post/coupling-and-cohesion-in-software-engineering))
 
 ---
 
@@ -37,21 +174,21 @@
 
 - [#88] throttle하는 함수를 유틸로 분리해보자. - [바로가기](https://github.com/woowacourse/javascript-youtube-classroom/pull/88#discussion_r825303875)
 
-  ```jsx
-  //적용 후
-  const throttle = (func, delay) => {
-    let timerId;
+```jsx
+//적용 후
+const throttle = (func, delay) => {
+  let timerId;
 
-    return () => {
-      if (!timerId) {
-        timerId = setTimeout(() => {
-          timerId = null;
-          func();
-        }, delay);
-      }
-    };
+  return () => {
+    if (!timerId) {
+      timerId = setTimeout(() => {
+        timerId = null;
+        func();
+      }, delay);
+    }
   };
-  ```
+};
+```
 
   <br>
 
@@ -115,7 +252,7 @@
   - [리뷰어님 답변] 성능을 위한 이런 소소한 개선 좋습니다 👍
   - document.querySelector로 시작한다면 DOM 트리의 최상단에서부터 시작해서 찾게 되고 element.querySelector로 찾게 되면 해당 element부터 시작해서 찾게 됩니다
     물론 요즘이야 워낙 하드웨어가 좋아서 이런 정도는 인지할 수 없을 정도의 미세한 차이지만 **이런 작은 개선들이 조금씩 쌓여서 좋은 프로그램이 될 수도, 반대로 안좋은 미세한 차이들이 쌓여서 나중에는 거대한 똥덩어리가 되기도 하는걸 많이 봤습니다.**
-  - 추가적으로 작성해주신 방식이 의도하지 않은 element가 select 되는 것을 막을수 있습니다. 예를 들어서 $('.video-item**thumbnail')이 document부터 시작한다면 DOM tree에서 class name이 video-item**thumbnail인 첫 번째 element를 찾게 되서 엉뚱한 element의 src에 thumbnails가 대입되게 됩니다
+  - 추가적으로 작성해주신 방식이 의도하지 않은 element가 select 되는 것을 막을수 있습니다. 예를 들어서 $('.video-itemthumbnail')이 document부터 시작한다면 DOM tree에서 class name이 video-item\_\_thumbnail인 첫 번째 element를 찾게 되서 엉뚱한 element의 src에 thumbnails가 대입되게 됩니다
 
 <br>
 
