@@ -5,6 +5,7 @@
 - 우아한테크코스 미션 코드리뷰를 '리뷰'하는 스터디입니다.
 - 주요 활동은 다른 크루들이 받은 좋은 코드리뷰들을 각자 분량을 나누어 정리한 후 함께 공유하는 것입니다.
 - 목표는 `클린 코드` 및 `클린 아키텍처` 관련 역량 향상입니다.
+- 스터디원 : [마르코 @wonsss](https://github.com/wonsss), [록바 @lokba](https://github.com/lokba), [무비 @byhhh2](https://github.com/byhhh2), [호프 @moonheekim0118](https://github.com/moonheekim0118), [꼬재 @kkojae91](https://github.com/kkojae91)
 
 ## 2. 일정
 
