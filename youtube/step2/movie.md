@@ -202,7 +202,7 @@
   console.log('Back to the outer level');
   ```
 
-- [log의 스타일도 커스텀](https://www.samanthaming.com/tidbits/40-colorful-console-message/)이 가능하다. - [바로가기](https://github.com/woowacourse/javascript-youtube-classroom/pull/151#discussion_r830642019)
+- [#151] [log의 스타일도 커스텀](https://www.samanthaming.com/tidbits/40-colorful-console-message/)이 가능하다. - [바로가기](https://github.com/woowacourse/javascript-youtube-classroom/pull/151#discussion_r830642019)
 
   ```js
   console.log('%cHello', 'color: green; background: yellow; font-size: 30px'); // [1]
