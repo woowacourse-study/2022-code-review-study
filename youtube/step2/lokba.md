@@ -143,6 +143,9 @@
 
 - [#127] 아이템을 나열하는 리스트 UI에서 자주 사용하는 방식 - [바로가기](https://github.com/woowacourse/javascript-youtube-classroom/pull/127#discussion_r830480679)
   - 원래는 내부 스크롤 없이 리스트가 페이지에 쭉 나열되고, **스크롤로 내리면 메뉴 바가 상단에 붙는 UI를 많이 쓴다.**
+  - 관련 키워드 : sticky, fixed
+  - 스티키라는 것은 css 속성값이라고도 하지만, UI 적으로도 스티키 헤더라고 부른다.
+
 
 <br>
 
