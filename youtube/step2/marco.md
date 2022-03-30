@@ -45,6 +45,7 @@ this.#savedVideoItems.some((item, idx) => {
 - [#146] attribute는 '고유속성'에 가까운 정적인 개념에 가깝다. 동적으로 변하는 '상태'에는 적합하지 않다.
   - https://ko.javascript.info/dom-attributes-and-properties#ref-1789
 - [#178] 데이터 바인딩 - [바로가기](https://github.com/woowacourse/javascript-youtube-classroom/pull/148#discussion_r833264831)
+  - [준찌 추천 링크](https://facebook.github.io/flux/docs/in-depth-overview/)  
   - 데이터 바인딩은 데이터와 뷰를 묶는다는 뜻이다. 웹어플리케이셥의 복잡도가 증가하면 뷰와 데이터를 일치시키기 어려워진다. 그래서 데이터와 뷰가 자동으로 일치하도록 묶어 두는 것이 데이터 바인딩이다.
   - 데이터 바인딩은 다시 `단방향`과 `양방향`으로 나뉜다.
     - 단반향 데이터 바인딩은 데이터가 변경되면 템플릿과 데이터를 합쳐 뷰를 만든다.
