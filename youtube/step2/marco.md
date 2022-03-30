@@ -13,8 +13,8 @@
 
 ## 1. 함수
 
-- [#150] for문을 some 메서드를 활용하여 리팩토링
-
+- [#150] for문을 some 메서드를 활용하여 리팩토링 - [바로가기](https://github.com/woowacourse/javascript-youtube-classroom/pull/150#discussion_r830994669)
+    - [MDN - some](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
 ```js
 // [before] for문
 for (let idx = 0; idx < this.#savedVideoItems.length; idx += 1) {
@@ -31,6 +31,7 @@ this.#savedVideoItems.some((item, idx) => {
   if (item.videoId === deleteVideoId) {
     this.#savedVideoItems.splice(idx, 1);
   }
+  return item.videoId === savedId;
 });
 ```
 
