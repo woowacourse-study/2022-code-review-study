@@ -31,7 +31,6 @@ this.#savedVideoItems.some((item, idx) => {
   if (item.videoId === deleteVideoId) {
     this.#savedVideoItems.splice(idx, 1);
   }
-  return item.videoId === deleteVideoId;
 });
 ```
 
