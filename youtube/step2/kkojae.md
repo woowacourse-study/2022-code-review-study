@@ -32,6 +32,7 @@ const videoStorage = {
 };
 ```
 
+좋은 예가 아니다...!!
 변경 후
 
 ```js
@@ -64,6 +65,8 @@ Storage라는 이름일 경우 localStorage가 API로 변경되었을 경우를 
 - 데이터의 변화를 감지해 템플릿과 결합하여 화면을 갱신하고 화면에서의 입력에 따라 데이터를 갱신한다.
 - 즉, 데이터와 화면 사이의 데이터가 계속해서 일치하게 되는 것이다. (UI와 domain의 데이터가 일치)
 - Vue는 양방향 데이터 바인딩을 한다.
+
+> [facebook article](https://facebook.github.io/flux/docs/in-depth-overview/)
 
 #### [#133](https://github.com/woowacourse/javascript-youtube-classroom/pull/133#discussion_r831692497) 인스턴스를 여러군데에서 사용할 경우 인스턴스를 생성해서 export 한다.
 
