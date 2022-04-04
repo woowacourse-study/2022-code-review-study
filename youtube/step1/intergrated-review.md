@@ -707,7 +707,7 @@ addEvent({ eventType, selector, handler, isPreventedDefault = false }) {
 
 ### 11-3. 유용한 문법
 
-- [[#101](https://github.com/woowacourse/javascript-youtube-classroom/pull/101#discussion_r825256475)] 삼항 연산자의 조건과 리턴값이 동일하다면 병합 연산자를 사용해보자 \*
+- [[#101](https://github.com/woowacourse/javascript-youtube-classroom/pull/101#discussion_r825256475)] 삼항 연산자의 조건과 리턴값이 동일하다면 nullish 병합 연산자(`??`)를 사용해보자 \*
 
   ```js
   // 삼항 연산자
@@ -715,7 +715,7 @@ addEvent({ eventType, selector, handler, isPreventedDefault = false }) {
     ? JSON.parse(localStorage.getItem('videos'))
     : [];
 
-  // 병합 연산자
+  // nullish 병합 연산자
   return JSON.parse(localStorage.getItem('videos') ?? '[]');
   ```
 
