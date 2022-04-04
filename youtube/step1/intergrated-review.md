@@ -59,33 +59,33 @@ App.js
 
 - [#95] 추상클래스 인스턴스화 막기 - [바로가기](https://github.com/woowacourse/javascript-youtube-classroom/pull/95#￼discussion_r825238162)
 
-```javascript
-if (this.constructor === Display) {
-  throw new Error('추상 클래스는 인스턴스화 할 수 없습니다.');
-}
+  ```javascript
+  if (this.constructor === Display) {
+    throw new Error('추상 클래스는 인스턴스화 할 수 없습니다.');
+  }
 
-class Display {
-  constructor() {
-    if (this.constructor === Display) {
-      throw new Error('추상 클래스는 인스턴스화 할 수 없습니다.');
+  class Display {
+    constructor() {
+      if (this.constructor === Display) {
+        throw new Error('추상 클래스는 인스턴스화 할 수 없습니다.');
+      }
     }
   }
-}
-class D2 extends Display {}
-D2.prototype.constructor = Display;
-const d = new D2(); // Error: 추상 클래스는 ...
-```
+  class D2 extends Display {}
+  D2.prototype.constructor = Display;
+  const d = new D2(); // Error: 추상 클래스는 ...
+  ```
 
-```javascript
- if (new.target.name === Display.name) {
-      throw new Error('추상 클래스는 인스턴스화 할 수 없습니다.');
-    }
-```
+  ```javascript
+   if (new.target.name === Display.name) {
+        throw new Error('추상 클래스는 인스턴스화 할 수 없습니다.');
+      }
+  ```
 
-- 위에서 D2는 추상클래스가 아님에도, constructor 를 덮어 씌움으로써 같은 에러를 만나게 된다.
-- [new.target - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/new.target) 속성을 이용할 수 있다.
-- new target 속성은 함수 또는 생성자가 new 연산자를 사용하여 호출되었는지 확인한다.
-- 일반함수 호출에서 new.target 은 undefined
+  - 위에서 D2는 추상클래스가 아님에도, constructor 를 덮어 씌움으로써 같은 에러를 만나게 된다.
+  - [new.target - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/new.target) 속성을 이용할 수 있다.
+  - new target 속성은 함수 또는 생성자가 new 연산자를 사용하여 호출되었는지 확인한다.
+  - 일반함수 호출에서 new.target 은 undefined
 
 - [#95] 추상화에 많은 공을 들이신 것 같아요. 개발하면서 즐거우셨을 것 같습니다. 다만 이번과 같은 규모가 작은 프로젝트에서는 이런 추상화/패턴화가 오히려 가독성/빠른 개발을 해치는 것은 아닐지에 대해서도 한 번쯤 생각해 보시면 좋겠습니다.
 
