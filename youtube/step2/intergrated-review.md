@@ -12,6 +12,7 @@
 	- 록바(@lokba) ✨
 	- 꼬재(@kkojae91) ✨
 
+<br/>
 
 
 ## 1. 아키텍쳐
@@ -120,7 +121,7 @@ export default class VideoStorage {
   ```
 
 
-
+<br/>
 
 
 ## 2. HTML 
@@ -184,6 +185,7 @@ export default class VideoStorage {
 ### 2-8. <br> 태그 
 - [#143] [`br`](https://developer.mozilla.org/ko/docs/Web/HTML/Element/br)태그 같은 경우 공식 문서에서도, `<br />`보다는 `<br>`을 사용하고 있다.! 이번 기회에 `/`를 제거해보자. - [바로가기](https://github.com/woowacourse/javascript-youtube-classroom/pull/143#discussion_r831049297)
 
+<br/>
 
 ## 3. 네이밍
 ### 3-1. 간결한 용어 vs 길지만 유추가능한 언어 
@@ -204,6 +206,7 @@ export default class VideoStorage {
 - [#143] 메서드 이름을 보고 어떤 return값이 나올지 추측해보는 것이 네이밍 작성하는데 좋은 접근방법 - [바로가기](https://github.com/woowacourse/javascript-youtube-classroom/pull/143#discussion_r832737482)
 
 
+<br/>
 
 ## 4. 테스트
 ### 4-1. 목데이터 가공
@@ -314,7 +317,7 @@ export default class VideoStorage {
 ```
 
 
-
+<br/>
 
 ## 5. 클린코드
 ### 5-1. NoFlag 의 사용
@@ -414,7 +417,7 @@ const [thumbnailImg, title, channelTitle, publishedAt, videoId] = videoInfo.chil
   + return videos
 ```
 
-
+<br/>
 
 ## 6. CSS
 ### 6-1. Text overflow 속성
@@ -479,7 +482,7 @@ const [thumbnailImg, title, channelTitle, publishedAt, videoId] = videoInfo.chil
   }
 ```
 
-
+<br/>
 
 ## 7. 성능
 ### 7-1. N 회 렌더링과 브라우저 렌더링
@@ -523,6 +526,7 @@ document.body.appendChild(frag);
 - [#129] localStorage 에서 배열인 json 데이터를 꺼내오는건 비용이 크다. 프로젝트에서 storage 와 같은 데이터를 관리해보는게 좋다.
 실제 localStorage 데이터를 수정해야할 경우에만 localStorage 에 접근하고, 데이터 가져오는 일은 서비스 처음 시작할 때 한번만 해보도록 한다.  - [바로가기](https://github.com/woowacourse/javascript-youtube-classroom/pull/126#discussion_r831002052)
 
+<br/>
 
 ## 8. 클래스
 ### 8-1. 인스턴스 export 하기
@@ -544,6 +548,8 @@ export default youtubeAPI;
 ### 8-3. 클래스 관련 파일 관리법
 - [#148] 클래스에 연관된 헬퍼함수, 템플릿, 상수 파일들의 분리 방법 - [바로가기](https://github.com/woowacourse/javascript-youtube-classroom/pull/148/files/1ba87826bed272037aac5446acbadcd4565ad3a3#r830620883)
   - 예들 들어, SearchModal 폴더를 만들고 하위에 SearchModal.js, SearchModal.helper.js, SearchModal.template.js, SearchModal.constants.js 이렇게 나누는것도 한 방법이다.
+
+<br/>
 
 ## 9. 객체 지향
 ### 9-1. 객체지향에서 setter 사용 
@@ -572,12 +578,13 @@ export default youtubeAPI;
       - 작은 단위의 클래스를 먼저 만들고, 이 들을 조합해서 하나의 커다란 클래스를 만든다.
 ![image](https://user-images.githubusercontent.com/59413128/160842074-1885d659-f21b-441a-abc5-ed2e20c0dcb2.png)
 
+<br/>
 
 ## 10. 객체
 ### 10-1. JSON.stringify 를 이용한 객체 비교
 - [#151] `JSON.stringify()`를 사용하여 두 객체가 같은 지 비교할 때, 키의 순서가 바뀌면 제대로 된 [검증을 할 수 없다](https://betterprogramming.pub/why-you-shouldnt-use-json-stringify-to-compare-objects-in-javascript-c9a16b7331e).! - [바로가기](https://github.com/woowacourse/javascript-youtube-classroom/pull/151#discussion_r830633031)
 
-
+<br/>
 
 
 ## 11. 기타
