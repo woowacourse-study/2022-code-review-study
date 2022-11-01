@@ -1,11 +1,29 @@
-# 리뷰스터디
+# 코드리뷰스터디(코리스)
 
-## 1. 개요
+## 0. 코드리뷰스터디 결과물
 
-- 우아한테크코스 미션 코드리뷰를 '리뷰'하는 스터디입니다.
+|통합정리본|참여자|
+|:---:|:---:|
+|[자동차게임 미션](https://github.com/woowacourse-study/2022-code-review-study/blob/main/racing-car/marco.md)|마르코|
+|[로또 미션 step1](https://github.com/woowacourse-study/2022-code-review-study/blob/main/lotto/step1/lotto-step1-integrated-review.md)|마르코, 호프, 록바, 무비|
+|[로또 미션 step2](https://github.com/woowacourse-study/2022-code-review-study/blob/main/lotto/step2/lotto-step2-intergrated-review.md)|마르코, 호프, 록바, 무비, 꼬재|
+|[유튜브 미션 step1](https://github.com/woowacourse-study/2022-code-review-study/blob/main/youtube/step1/intergrated-review.md)|마르코, 호프, 록바, 무비, 꼬재|
+|[유튜브 미션 step2](https://github.com/woowacourse-study/2022-code-review-study/blob/main/youtube/step2/intergrated-review.md)|마르코, 호프, 록바, 무비, 꼬재|
+
+## 1. 스터디 소개
+
+- 우아한테크코스 4기 미션 코드리뷰를 '리뷰'하는 스터디입니다.
 - 주요 활동은 다른 크루들이 받은 좋은 코드리뷰들을 각자 분량을 나누어 정리한 후 함께 공유하는 것입니다.
-- 목표는 `클린 코드` 및 `클린 아키텍처` 관련 역량 향상입니다.
-- 스터디원 : [마르코 @wonsss](https://github.com/wonsss), [록바 @lokba](https://github.com/lokba), [무비 @byhhh2](https://github.com/byhhh2), [호프 @moonheekim0118](https://github.com/moonheekim0118), [꼬재 @kkojae91](https://github.com/kkojae91)
+- 목표는 코드리뷰를 통하여 `메타인지` 및 `클린 코드` 역량 향상입니다.
+- 스터디원
+
+|Nickname|Github|
+|:---:|:---:|
+|마르코|[@wonsss](https://github.com/wonsss)|
+|록바|[@lokba](https://github.com/lokba)|
+|무비|[@byhhh2](https://github.com/byhhh2)|
+|호프|[@moonheekim0118](https://github.com/moonheekim0118)|
+|꼬재|[@kkojae91](https://github.com/kkojae91)|
 
 ## 2. 일정
 
@@ -67,7 +85,6 @@
 ## 4. 운영 관련
 
 - 매주 스터디원들이 번갈아 가며 모임 운영 역할을 맡습니다.
-  - 록바->마르코->무비->
 - 운영자 역할
   - 스터디원들에게 담당 코드리뷰PR 분배
   - 스터디원들이 올린 PR 검토 후 merge
